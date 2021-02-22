@@ -1,7 +1,8 @@
 
 public class Cuenta {
 	
-	 String titular;
+	 public static double setSaldo;
+	String titular;
 	 double saldo;
 	
 	public Cuenta(String titular, double saldo) {
