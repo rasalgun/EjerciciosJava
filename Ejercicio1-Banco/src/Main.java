@@ -77,15 +77,15 @@ public class Main {
 					System.out.println("Escribe la cantidad deseada");
 					saldoretirar = sc.nextInt();
 			
-					Cuenta.setSaldo = listCuenta[i].getSaldo() - saldoretirar;
+					listCuenta[i].setSaldo = listCuenta[i].getSaldo() - saldoretirar;
+		
+				while(listCuenta[i].getSaldo()<0) {
+					listCuenta[i].setSaldo = 0;
 					System.out.println(listCuenta[i].getSaldo() + " " + listCuenta[i].getNombre());
-					
-			} else if(listCuenta[i].getSaldo()<0) {
-				Cuenta.setSaldo = 0;
-				System.out.println(listCuenta[i].getSaldo() + " " + listCuenta[i].getNombre());
+				}
+				
+			System.out.println(listCuenta[i].getSaldo() + " " + listCuenta[i].getNombre());
 			}
-			
-			
 		}
 		}
 	
