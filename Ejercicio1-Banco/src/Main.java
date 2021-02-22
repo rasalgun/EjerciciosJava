@@ -14,8 +14,8 @@ public class Main {
 		Cuenta listCuenta [] = new Cuenta[n]; // Creamos los objetos cuentas en un array
 
 	
-		añadirCliente(listCuenta);
-		System.out.println(listCuenta[0].getNombre());
+		añadirCliente(listCuenta); // añadimos el nombre y el sueldo
+		
 		
 	}
 	
@@ -32,15 +32,8 @@ public class Main {
 			System.out.println("-2.No                              -");
 			System.out.println("------------------------------------");
 			op = sc.nextInt();
-			System.out.println("Desea retirar dinero");
-			op = sc.nextInt();
-			System.out.println("------------------------------------");
-			System.out.println("-Desea ingresar dinero en su cuenta-");
-			System.out.println("-1.Sí                              -");
-			System.out.println("-2.No                              -");
-			System.out.println("------------------------------------");
 			
-			switch (op) {
+			switch (op) { // Elige en
 				case 1: {
 					System.out.println("Escribe la cantidad deseada");
 					saldo = sc.nextInt();
@@ -52,6 +45,25 @@ public class Main {
 					break;
 				}
 			}
+			
+			System.out.println("Desea retirar dinero");
+			op = sc.nextInt();
+			System.out.println("------------------------------------");
+			System.out.println("-Desea ingresar dinero en su cuenta-");
+			System.out.println("-1.Sí                              -");
+			System.out.println("-2.No                              -");
+			System.out.println("------------------------------------");
+			op = sc.nextInt();
+			
+			if(op == 1) {
+				
+			}
+			
+			
+			
+			
 	}
 	}
+	
+
 }
