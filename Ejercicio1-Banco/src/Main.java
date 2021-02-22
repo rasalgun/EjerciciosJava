@@ -1,9 +1,6 @@
 import java.util.*;
 
 public class Main {
-	//piuwegfpiuggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggglocooooooooooooooooo
-	//ya lo tienes bien patricio
-	//okmoioio
 		static Scanner sc = new Scanner(System.in);
 		static int n = 0, op;
 		static double saldo, saldoretirar;
