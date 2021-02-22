@@ -76,6 +76,7 @@ public class Main {
 					System.out.println((i1)+"º cliente " + "[" + listCuenta[i1].getNombre()+"]" + "|| Saldo disponible: " + listCuenta[i1].getSaldo());
 				}
 			
+
 				System.out.println("Marque la cuenta deseada");
 				int nCuenta = sc.nextInt();
 				System.out.println("Escribe la cantidad deseada, a retirar");
@@ -86,9 +87,17 @@ public class Main {
 					
 			} else if(listCuenta[i].getSaldo()<0) { // si marca 2 por defecto acabara el prorama
 				System.out.println("Sus operaciones han finalizado, vuelva cuando quiera");
+
+					listCuenta[i].setSaldo = listCuenta[i].getSaldo() - saldoretirar;
+		
+				while(listCuenta[i].getSaldo()<0) {
+					listCuenta[i].setSaldo = 0;
+					System.out.println(listCuenta[i].getSaldo() + " " + listCuenta[i].getNombre());
+				}
+				
+			System.out.println(listCuenta[i].getSaldo() + " " + listCuenta[i].getNombre());
+
 			}
-			
-			
 		}
 		}
 	

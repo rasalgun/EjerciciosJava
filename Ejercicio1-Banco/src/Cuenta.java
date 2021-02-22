@@ -1,7 +1,7 @@
 
 public class Cuenta {
 	
-	 public static double setSaldo;
+	 public double setSaldo;
 	String titular;
 	 double saldo;
 	
