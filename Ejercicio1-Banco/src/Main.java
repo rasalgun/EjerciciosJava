@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Main {
-
+	//piuwegfpiuggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggglocooooooooooooooooo
 	//ya lo tienes bien patricio
 	//okmoioio
 		static Scanner sc = new Scanner(System.in);
