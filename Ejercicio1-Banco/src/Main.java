@@ -1,0 +1,57 @@
+import java.util.*;
+
+public class Main {
+	
+	static Scanner sc = new Scanner(System.in);
+	static int n = 0, op, saldo;
+	static String titular;
+	public static void main(String[] args) { // metodo principal
+		
+		System.out.println("Bienvenido al programa de gestión financiera");
+		
+		System.out.println("Introduce el número de clientes");
+		n = sc.nextInt();
+		Cuenta listCuenta [] = new Cuenta[n]; // Creamos los objetos cuentas en un array
+
+	
+		añadirCliente(listCuenta);
+		System.out.println(listCuenta[0].getNombre());
+		
+	}
+	
+	public static void añadirCliente(Cuenta listCuenta[]) {
+		for (int i = 0; i < listCuenta.length; i++) {
+			System.out.println("--------------------");
+			System.out.println("-Añadir cliente " + (i+1)+ " º-");
+			System.out.println("--------------------");
+			System.out.println("Para darse de alta debe de indicar su nombre_");
+		    titular = sc.next();
+			System.out.println("------------------------------------");
+			System.out.println("-Desea ingresar dinero en su cuenta-");
+			System.out.println("-1.Sí                              -");
+			System.out.println("-2.No                              -");
+			System.out.println("------------------------------------");
+			op = sc.nextInt();
+			System.out.println("Desea retirar dinero");
+			op = sc.nextInt();
+			System.out.println("------------------------------------");
+			System.out.println("-Desea ingresar dinero en su cuenta-");
+			System.out.println("-1.Sí                              -");
+			System.out.println("-2.No                              -");
+			System.out.println("------------------------------------");
+			
+			switch (op) {
+				case 1: {
+					System.out.println("Escribe la cantidad deseada");
+					saldo = sc.nextInt();
+					listCuenta[i] = new Cuenta(titular, saldo); // Utilizo el constructor que tiene los parametros nombre y saldo
+					break;
+				}
+				case 2:{
+					listCuenta[i] = new Cuenta(titular); // Utilizo el contructor que ya esta inicializado con saldo(0)
+					break;
+				}
+			}
+	}
+	}
+}
