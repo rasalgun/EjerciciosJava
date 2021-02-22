@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Main {
-	
+	//piuwegfpiuggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggglocooooooooooooooooo
 		static Scanner sc = new Scanner(System.in);
 		static int n = 0, op;
 		static double saldo, saldoretirar;
@@ -76,7 +76,6 @@ public class Main {
 					System.out.println((i1)+"º cliente " + "[" + listCuenta[i1].getNombre()+"]" + "|| Saldo disponible: " + listCuenta[i1].getSaldo());
 				}
 			
-
 				System.out.println("Marque la cuenta deseada");
 				int nCuenta = sc.nextInt();
 				System.out.println("Escribe la cantidad deseada, a retirar");
