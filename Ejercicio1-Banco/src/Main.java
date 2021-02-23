@@ -1,28 +1,73 @@
 import java.util.*;
 
 public class Main {
-	//PROBANDO POR ENESIMA VEZ
+	
+	// HE CREADO UN METODO DE INGRESAR Y HE PUESTO UN MENU
+	
 		static Scanner sc = new Scanner(System.in);
 		static int n = 0, op;
-		static double saldo, saldoretirar;
+		static double saldo, saldoretirar, saldoringresar;
 		static String titular;
+		static int opcion, opcionsalir;
+		static boolean continuar =true;
+		static String fin;
 		
-
-		public static void main(String[] args) { // metodo principal
+		//METODO PRINCIPAL
+		public static void main(String[] args) {
 		
 		System.out.println("Bienvenido al programa de gestión financiera");
-		
+		System.out.println("--------------------------------------------");
 		System.out.println("Introduce el número de clientes");
+		System.out.println("--------------------------------------------");
 		n = sc.nextInt();
+		System.out.println("--------------------------------------------");
 		
-		Cuenta listCuenta [] = new Cuenta[n+1]; // Creamos los objetos cuentas en un array
-
-	
-		añadirCliente(listCuenta); // añadimos el nombre y el sueldo
-		retirarDinero(listCuenta);
+		Cuenta listCuenta [] = new Cuenta[n+1];
 		
-	}
+		// CREAMOS LOS OBJETOS CUENTAS EN UN  ARRAY
+		// MENU 
+	do {
+		do {
+		System.out.println("Menu del programa de gestión financiera");
+		System.out.println("--------------------------------------------");
+		System.out.println("--------------------------------------------");
+		System.out.println("Elige una opcion:_ \n 1.- Añadir clientes y Ingresar mas dinero. \n 2.- Añadir clientes y Retirar dinero.");
+		System.out.println("--------------------------------------------");
+		System.out.println("--------------------------------------------");
+		opcion = sc.nextInt();
+		}while(opcion < 1 || opcion > 2 );
+		
+		switch(opcion) {
 	
+			case 1:
+				añadirCliente(listCuenta);
+				ingresarDinero(listCuenta);
+				System.out.println("Desea continuar con en el programa ¿SI o NO?:_");
+				fin = sc.next();
+				if(fin.equalsIgnoreCase("si")) {
+					continuar = true;
+				}else {
+					continuar = false;
+					System.out.println("Adios");
+				}
+				break;
+			case 2:
+				añadirCliente(listCuenta);
+				retirarDinero(listCuenta);
+				System.out.println("Desea continuar con en el programa ¿SI o NO?:_");
+				fin = sc.next();
+				if(fin.equalsIgnoreCase("si")) {
+					continuar = true;
+				}else {
+					continuar = false;
+					System.out.println("Adios");
+				}
+				break;	
+		}
+			} while(continuar = true);
+}
+	
+		
 	public static void añadirCliente(Cuenta listCuenta[]) {
 		for (int i = 1; i < listCuenta.length; i++) {
 			System.out.println("--------------------");
@@ -30,27 +75,16 @@ public class Main {
 			System.out.println("--------------------");
 			System.out.println("Para darse de alta debe de indicar su nombre_");
 		    titular = sc.next();
-			System.out.println("------------------------------------");
-			System.out.println("-Desea ingresar dinero en su cuenta-");
-			System.out.println("-1.Sí                              -");
-			System.out.println("-2.No                              -");
-			System.out.println("------------------------------------");
-			op = sc.nextInt();
-			
-			switch (op) {
-				case 1: {
-					System.out.println("Escribe la cantidad deseada");
+	
+					// SE UTILIZA EL CONSTRUCTOR QUE TIENE LOS PARAMETROS NOMBRE Y SALDO
+					System.out.println("Escribe la cantidad dinero a ingresar");
 					saldo = sc.nextInt();
-					listCuenta[i] = new Cuenta(titular, saldo); // Utilizo el constructor que tiene los parametros nombre y saldo
-					break;
-				}
-				case 2:{
-					listCuenta[i] = new Cuenta(titular); // Utilizo el contructor que ya esta inicializado con saldo(0)
-					break;
-				}
+					listCuenta[i] = new Cuenta(titular, saldo); 
+					
+					// SE UTILIZA EL CONSTRUCTOR QUE YA ESTA INICIALIZADO CON SALDO = 0
+					listCuenta[i] = new Cuenta(titular); 
+					
 			}
-		
-	}
 		
 	
 	}
@@ -66,13 +100,12 @@ public class Main {
 				System.out.println("-2.No                              -");
 				System.out.println("------------------------------------");
 				op = sc.nextInt();
-				
-				
-			
+		
 			if(op == 1) {
 				
+				// IMPRIME LOS NOMBRES DE LOS CLIENTES CON SU SALDO
 				System.out.println("Lista de clientes registrados la sucursal bancaria");
-				for (int i1 = 1; i1 < listCuenta.length; i1++) { // Imprimimos los nombres de los usuarios registrados con su correspondiente saldo
+				for (int i1 = 1; i1 < listCuenta.length; i1++) { 
 					System.out.println((i1)+"º cliente " + "[" + listCuenta[i1].getNombre()+"]" + "|| Saldo disponible: " + listCuenta[i1].getSaldo());
 				}
 			
@@ -80,11 +113,17 @@ public class Main {
 				int nCuenta = sc.nextInt();
 				System.out.println("Escribe la cantidad deseada, a retirar");
 					saldoretirar = sc.nextInt();
-					int dRetirado = (int) (listCuenta[nCuenta].getSaldo() - saldoretirar); // almacenamos la diferencia en una variable
-					listCuenta[nCuenta].setSaldo(dRetirado); // pasamos la variable con el dato que queremos cambiar
+					
+					// ALMACENA LA DIFERENCIA EN UNA VARIABLE
+					int dRetirado = (int) (listCuenta[nCuenta].getSaldo() - saldoretirar); 
+					
+					// PASA LA VARIABLE CON EL DATO QUE QUEREMOS CAMBIAR
+					listCuenta[nCuenta].setSaldo(dRetirado); 
 					System.out.println("Su saldo ahora es: " + listCuenta[nCuenta].getSaldo() + "|| De la cuenta " + listCuenta[nCuenta].getNombre()); // imprimimos la cuenta actualizada con el nombre del cliente
 					
-			} else if(listCuenta[i].getSaldo()<0) { // si marca 2 por defecto acabara el prorama
+					
+					// SI MARCA 2 POR DEFECTO ACABARA EL PROGRAMA
+			} else if(listCuenta[i].getSaldo()<0) { 
 				System.out.println("Sus operaciones han finalizado, vuelva cuando quiera");
 
 					listCuenta[i].setSaldo = listCuenta[i].getSaldo() - saldoretirar;
@@ -100,6 +139,51 @@ public class Main {
 		}
 		}
 	
+		public static void ingresarDinero(Cuenta listCuenta[]) {
+			
+			for (int i = 1; i < listCuenta.length; i++) {
+
+				System.out.println("------------------------------------");
+				System.out.println("-Desea ingresar dinero en alguna cuenta");
+				System.out.println("-1.Sí                              -");
+				System.out.println("-2.No                              -");
+				System.out.println("------------------------------------");
+				op = sc.nextInt();
+		
+			if(op == 1) {
+				// IMPRIMIMOS LOS NOMBRES DE LOS CLIENTES REGISTRADOS CON SU CORRESPONDIENTE SALDO
+				System.out.println("Lista de clientes registrados la sucursal bancaria");
+				for (int i1 = 1; i1 < listCuenta.length; i1++) { 
+					System.out.println((i1)+"º cliente " + "[" + listCuenta[i1].getNombre()+"]" + "|| Saldo disponible: " + listCuenta[i1].getSaldo());
+				}
+			
+				System.out.println("Marque la cuenta deseada");
+				int nCuenta = sc.nextInt();
+				System.out.println("Escribe la cantidad deseada, a ingresar");
+					saldoringresar = sc.nextInt();
+					// ALMACENA LA SUMA EN UNA VARIABLE
+					int dIngresado = (int) (listCuenta[nCuenta].getSaldo() + saldoringresar); 
+					
+					// PASA LA VARIABLE CON EL DATO QUE QUEREMOS CAMBIAR
+					listCuenta[nCuenta].setSaldo(dIngresado); 
+					System.out.println("Su saldo ahora es: " + listCuenta[nCuenta].getSaldo() + "|| De la cuenta " + listCuenta[nCuenta].getNombre()); // imprimimos la cuenta actualizada con el nombre del cliente
+					
+					// SI MARCA 2 POR DEFECTO ACABARA EL PROGRAMA
+			} else if(listCuenta[i].getSaldo()<0) { 
+				System.out.println("Sus operaciones han finalizado, vuelva cuando quiera");
+
+					listCuenta[i].setSaldo = listCuenta[i].getSaldo() + saldoringresar;
+		
+				while(listCuenta[i].getSaldo()<0) {
+					listCuenta[i].setSaldo = 0;
+					System.out.println(listCuenta[i].getSaldo() + " " + listCuenta[i].getNombre());
+				}
+				
+			System.out.println(listCuenta[i].getSaldo() + " " + listCuenta[i].getNombre());
+
+			}
+		}
+		}
 	
 	
 	
