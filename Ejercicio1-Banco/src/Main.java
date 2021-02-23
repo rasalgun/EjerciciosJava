@@ -24,14 +24,17 @@ public class Main {
 		
 		Cuenta listCuenta [] = new Cuenta[n+1];
 		
+		
 		// CREAMOS LOS OBJETOS CUENTAS EN UN  ARRAY
 		// MENU 
 	do {
 		do {
 		System.out.println("Menu del programa de gestión financiera");
+		System.out.println("Añadir clientes");
+		añadirCliente(listCuenta);
 		System.out.println("--------------------------------------------");
 		System.out.println("--------------------------------------------");
-		System.out.println("Elige una opcion:_ \n 1.- Añadir clientes y Ingresar mas dinero. \n 2.- Añadir clientes y Retirar dinero.");
+		System.out.println("Elige una opcion:_ \n 1.- Ingresar mas dinero. \n 2.- Retirar dinero.");
 		System.out.println("--------------------------------------------");
 		System.out.println("--------------------------------------------");
 		opcion = sc.nextInt();
@@ -40,7 +43,7 @@ public class Main {
 		switch(opcion) {
 	
 			case 1:
-				añadirCliente(listCuenta);
+				
 				ingresarDinero(listCuenta);
 				System.out.println("Desea continuar con en el programa ¿SI o NO?:_");
 				fin = sc.next();
@@ -52,7 +55,7 @@ public class Main {
 				}
 				break;
 			case 2:
-				añadirCliente(listCuenta);
+			
 				retirarDinero(listCuenta);
 				System.out.println("Desea continuar con en el programa ¿SI o NO?:_");
 				fin = sc.next();
