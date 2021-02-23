@@ -84,6 +84,7 @@ public class Main {
 					// SE UTILIZA EL CONSTRUCTOR QUE YA ESTA INICIALIZADO CON SALDO = 0
 					listCuenta[i] = new Cuenta(titular); 
 					
+		
 			}
 		
 	
@@ -93,15 +94,6 @@ public class Main {
 		public static void retirarDinero(Cuenta listCuenta[]) {
 			
 			for (int i = 1; i < listCuenta.length; i++) {
-
-				System.out.println("------------------------------------");
-				System.out.println("-Desea retirar dinero de alguna cuenta-");
-				System.out.println("-1.Sí                              -");
-				System.out.println("-2.No                              -");
-				System.out.println("------------------------------------");
-				op = sc.nextInt();
-		
-			if(op == 1) {
 				
 				// IMPRIME LOS NOMBRES DE LOS CLIENTES CON SU SALDO
 				System.out.println("Lista de clientes registrados la sucursal bancaria");
@@ -123,7 +115,7 @@ public class Main {
 					
 					
 					// SI MARCA 2 POR DEFECTO ACABARA EL PROGRAMA
-			} else if(listCuenta[i].getSaldo()<0) { 
+			while (listCuenta[i].getSaldo()<0) { 
 				System.out.println("Sus operaciones han finalizado, vuelva cuando quiera");
 
 					listCuenta[i].setSaldo = listCuenta[i].getSaldo() - saldoretirar;
@@ -143,14 +135,7 @@ public class Main {
 			
 			for (int i = 1; i < listCuenta.length; i++) {
 
-				System.out.println("------------------------------------");
-				System.out.println("-Desea ingresar dinero en alguna cuenta");
-				System.out.println("-1.Sí                              -");
-				System.out.println("-2.No                              -");
-				System.out.println("------------------------------------");
-				op = sc.nextInt();
-		
-			if(op == 1) {
+			
 				// IMPRIMIMOS LOS NOMBRES DE LOS CLIENTES REGISTRADOS CON SU CORRESPONDIENTE SALDO
 				System.out.println("Lista de clientes registrados la sucursal bancaria");
 				for (int i1 = 1; i1 < listCuenta.length; i1++) { 
@@ -169,7 +154,7 @@ public class Main {
 					System.out.println("Su saldo ahora es: " + listCuenta[nCuenta].getSaldo() + "|| De la cuenta " + listCuenta[nCuenta].getNombre()); // imprimimos la cuenta actualizada con el nombre del cliente
 					
 					// SI MARCA 2 POR DEFECTO ACABARA EL PROGRAMA
-			} else if(listCuenta[i].getSaldo()<0) { 
+			while (listCuenta[i].getSaldo()<0) { 
 				System.out.println("Sus operaciones han finalizado, vuelva cuando quiera");
 
 					listCuenta[i].setSaldo = listCuenta[i].getSaldo() + saldoringresar;
