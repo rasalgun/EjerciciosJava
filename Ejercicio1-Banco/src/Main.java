@@ -27,11 +27,13 @@ public class Main {
 		
 		// CREAMOS LOS OBJETOS CUENTAS EN UN  ARRAY
 		// MENU 
-	do {
-		do {
+	
+		
 		System.out.println("Menu del programa de gestión financiera");
 		System.out.println("Añadir clientes");
 		añadirCliente(listCuenta);
+		do {
+			do {
 		System.out.println("--------------------------------------------");
 		System.out.println("--------------------------------------------");
 		System.out.println("Elige una opcion:_ \n 1.- Ingresar mas dinero. \n 2.- Retirar dinero.");
@@ -84,8 +86,7 @@ public class Main {
 					saldo = sc.nextInt();
 					listCuenta[i] = new Cuenta(titular, saldo); 
 					
-					// SE UTILIZA EL CONSTRUCTOR QUE YA ESTA INICIALIZADO CON SALDO = 0
-					listCuenta[i] = new Cuenta(titular); 
+					
 					
 		
 			}
