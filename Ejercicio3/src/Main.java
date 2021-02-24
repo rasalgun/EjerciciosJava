@@ -54,11 +54,17 @@ public class Main {
 				}
 		}
 	
-	public static void calcularIMC(Persona listpersona[]) {
-		
-		for (int i = 1; i < listpersona.length; i++) {
-			int IMC;
-			
+	public static int calcularIMC(int peso, int altura) {
+		int resul = 0;
+			double imc;
+			imc = peso/Math.pow(altura, 2);
+			if(imc<20) {
+				resul = -1;
+			} else if (imc <= 20 && imc <= 25) {
+				resul = 0;
+			} else if (imc > 25) {
+				resul = 1;
+			}
+			return resul;
 		}
-	}
 }
