@@ -62,8 +62,6 @@ public class Main {
 			continuar = false;
 			System.out.println("Adios");
 		}
-		
-		
 			} while(continuar);
 }
 	
@@ -80,15 +78,12 @@ public class Main {
 					System.out.println("Escribe la cantidad dinero a ingresar");
 					saldo = sc.nextInt();
 					listCuenta[i] = new Cuenta(titular, saldo); 
-			}
-
-	}
+					}
+		}
 	
 
 		public static void retirarDinero(Cuenta listCuenta[]) {
 			
-		
-				
 				// IMPRIME LOS NOMBRES DE LOS CLIENTES CON SU SALDO
 				System.out.println("Lista de clientes registrados la sucursal bancaria");
 				for (int i1 = 1; i1 < listCuenta.length; i1++) { 
@@ -119,14 +114,11 @@ public class Main {
 				}
 				
 			System.out.println(listCuenta[nCuenta ].getSaldo() + " " + listCuenta[nCuenta].getNombre());
-
 			}
 		}
 		
-	
 		public static void ingresarDinero(Cuenta listCuenta[]) {
 			
-	
 				// IMPRIMIMOS LOS NOMBRES DE LOS CLIENTES REGISTRADOS CON SU CORRESPONDIENTE SALDO
 				System.out.println("Lista de clientes registrados la sucursal bancaria");
 				for (int i1 = 1; i1 < listCuenta.length; i1++) { 
@@ -156,9 +148,6 @@ public class Main {
 				}
 				
 			System.out.println(listCuenta[nCuenta].getSaldo() + " " + listCuenta[nCuenta].getNombre());
-
-			}
-			
-			
-}
+		}		
+	}
 }
