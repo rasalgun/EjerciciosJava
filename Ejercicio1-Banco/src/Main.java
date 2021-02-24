@@ -63,6 +63,7 @@ public class Main {
 			System.out.println("Adios");
 		}
 			} while(continuar);
+		mejorMoney(listCuenta);
 }
 	
 		
@@ -150,4 +151,16 @@ public class Main {
 			System.out.println(listCuenta[nCuenta].getSaldo() + " " + listCuenta[nCuenta].getNombre());
 		}		
 	}
+		
+		public static void mejorMoney(Cuenta listCuenta[]) {
+			double maxMoney = 0;
+			String nombre = "";
+			for (int i = 1; i < listCuenta.length; i++) {
+				if (listCuenta[i].getSaldo() > maxMoney) {
+					maxMoney = listCuenta[i].getSaldo();
+					nombre = listCuenta[i].getNombre();
+				}
+			}
+					System.out.println("La cuenta con mas dinero es de " + nombre + "con una cantidad de " + maxMoney+"€");
+		}
 }
