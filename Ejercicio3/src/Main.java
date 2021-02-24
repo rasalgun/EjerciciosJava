@@ -2,7 +2,7 @@
 import java.util.*;
 
 public class Main {
-
+	
 	static Scanner sc = new Scanner(System.in);
 	static int n = 0, edad, peso, altura;
 	static double salario;
