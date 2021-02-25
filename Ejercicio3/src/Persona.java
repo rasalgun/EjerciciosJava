@@ -18,5 +18,9 @@ public class Persona {
 		this.peso = peso;
 		this.altura = altura;
 	}
+	
+	public String toString() {
+		return "nombre:" +nombre+ "-" + " edad:" +edad+ "-" + " dni:" +dni+ "-" + " sexo:" +sexo+ "-" + " profesion:" + profesion + "-" + " salario:" + salario + "-" + " peso:" + peso + "-" + " altura:" + altura;
+}
 }
 
