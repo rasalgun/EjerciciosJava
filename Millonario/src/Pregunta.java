@@ -98,5 +98,7 @@ public class Pregunta {
 	
 	// Funciones y metodos de la clase pregunta
 	
-	
+	public String toString() {
+		return enunciado+"\n"+l1+"\n"+l2+"\n"+l3+"\n"+l4;
+	}
 }
