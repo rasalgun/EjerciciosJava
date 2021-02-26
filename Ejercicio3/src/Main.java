@@ -19,9 +19,26 @@ public class Main {
 		listpersona=añadirPersonal(listpersona,sc);
 			
 		for(int i=0;i<listpersona.length;i++) {
+			System.out.println(" Estas son las comprobaciones para esta persona: " + listpersona[i].getNombre());
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("Comprobar IMC");
 			System.out.println(Persona.calcularIMC(listpersona[i].getPeso(), listpersona[i].getAltura()));
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("Comprobar si es mayor de edad");
 			System.out.println(Persona.esMayorDeEdad(listpersona[i].getEdad()));
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("Comprobar si es mileurista");
 			System.out.println(Persona.esMileurista((int) listpersona[i].getSalario()));
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("Comprobar sexo de la persona");
+			System.out.println(Persona.comprobarSexo(listpersona[i].getSexo()));
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println(listpersona[i]);
 		}
 		
 	}

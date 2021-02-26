@@ -1,7 +1,11 @@
 public class Persona {
 
-	String nombre, dni, profesion;
-	int edad, peso, altura;
+	String nombre;
+	static String dni;
+	String profesion;
+	static int edad;
+	int peso;
+	int altura;
 	char sexo;
 	double salario;
 	
@@ -138,7 +142,7 @@ public class Persona {
 		return resul;
 	}
 
-	public String comprobarSexo(char sexo) {
+	public static String comprobarSexo(char sexo) {
 		String error;
 		if(sexo=='H' || sexo=='M') {
 			error = "Si es un valor valido";
@@ -158,10 +162,16 @@ public class Persona {
 		return resul;
 		
 	}
-	
-	
+
+
+
+	@Override
 	public String toString() {
-		return "nombre:" +nombre+ "-" + " edad:" +edad+ "-" + " dni:" +dni+ "-" + " sexo:" +sexo+ "-" + " profesion:" + profesion + "-" + " salario:" + salario + "-" + " peso:" + peso + "-" + " altura:" + altura;
-}
+		return "Persona [nombre=" + nombre + ", profesion=" + profesion + ", peso=" + peso + ", altura=" + altura
+				+ ", sexo=" + sexo + ", salario=" + salario + "]";
+	}
+	
+	
+	
 }
 
