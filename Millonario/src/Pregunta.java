@@ -5,12 +5,12 @@ public class Pregunta {
 	String opcion2;
 	String opcion3;
 	String opcion4;
-	int l1;
-	int l2;
-	int l3;
-	int l4;
+	String l1;
+	String l2;
+	String l3;
+	String l4;
 	
-	public Pregunta(String enunciado, String opcion1, String opcion2, String opcion3, String opcion4, int l1, int l2, int l3, int l4) {
+	public Pregunta(String enunciado, String opcion1, String opcion2, String opcion3, String opcion4, String l1, String l2, String l3, String l4) {
 		super();
 		this.enunciado = enunciado;
 		this.opcion1 = opcion1;
@@ -63,35 +63,35 @@ public class Pregunta {
 		this.opcion4 = opcion4;
 	}
 
-	public int getL1() {
+	public String getL1() {
 		return l1;
 	}
 
-	public void setL1(int l1) {
+	public void setL1(String l1) {
 		this.l1 = l1;
 	}
 
-	public int getL2() {
+	public String getL2() {
 		return l2;
 	}
 
-	public void setL2(int l2) {
+	public void setL2(String l2) {
 		this.l2 = l2;
 	}
 
-	public int getL3() {
+	public String getL3() {
 		return l3;
 	}
 
-	public void setL3(int l3) {
+	public void setL3(String l3) {
 		this.l3 = l3;
 	}
 
-	public int getL4() {
+	public String getL4() {
 		return l4;
 	}
 
-	public void setL4(int l4) {
+	public void setL4(String l4) {
 		this.l4 = l4;
 	}
 	
