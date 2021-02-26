@@ -9,8 +9,9 @@ public class Pregunta {
 	String l2;
 	String l3;
 	String l4;
+	String ltrue;
 	
-	public Pregunta(String enunciado, String opcion1, String opcion2, String opcion3, String opcion4, String l1, String l2, String l3, String l4) {
+	public Pregunta(String enunciado, String opcion1, String opcion2, String opcion3, String opcion4, String l1, String l2, String l3, String l4, String ltrue) {
 		super();
 		this.enunciado = enunciado;
 		this.opcion1 = opcion1;
@@ -21,6 +22,7 @@ public class Pregunta {
 		this.l2 = l2;
 		this.l3 = l3;
 		this.l4 = l4;
+		this.ltrue = ltrue;
 	}
 
 	public String getEnunciado() {
@@ -93,6 +95,14 @@ public class Pregunta {
 
 	public void setL4(String l4) {
 		this.l4 = l4;
+	}
+	
+	public String getltrue() {
+		return ltrue;
+	}
+	
+	public void setltrue(String ltrue) {
+		this.ltrue = ltrue;
 	}
 	
 	
