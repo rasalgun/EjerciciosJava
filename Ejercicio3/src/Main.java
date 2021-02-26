@@ -17,32 +17,22 @@ public class Main {
 		Persona listpersona [] = new Persona [n];
 		
 		listpersona=añadirPersonal(listpersona,sc);
-	
+			
+		for(int i=0;i<listpersona.length;i++) {
+			System.out.println(Persona.calcularIMC(listpersona[i].getPeso(), listpersona[i].getAltura()));
+			System.out.println(Persona.esMayorDeEdad(listpersona[i].getEdad()));
+			System.out.println(Persona.esMileurista((int) listpersona[i].getSalario()));
+		}
 		
-		listpersona[0].calcularIMC(listpersona[0].getPeso(), listpersona[0].getAltura());
-		listpersona[1].calcularIMC(listpersona[1].getPeso(), listpersona[1].getAltura());
-		listpersona[2].calcularIMC(listpersona[2].getPeso(), listpersona[2].getAltura());
-		
-		listpersona[0].esMayorDeEdad(listpersona[0].getEdad());
-		listpersona[1].esMayorDeEdad(listpersona[1].getEdad());
-		listpersona[2].esMayorDeEdad(listpersona[2].getEdad());
-		
-		listpersona[0].esMileurista((int) listpersona[0].getSalario());
-		listpersona[1].esMileurista((int) listpersona[1].getSalario());
-		listpersona[2].esMileurista((int) listpersona[2].getSalario());
-		
-		listpersona[0].toString();
-		listpersona[1].toString();
-		listpersona[2].toString();
 	}
 	
-	public Persona[] añadirPersonal(Persona listpersona[], Scanner sc) {
+	public static Persona[] añadirPersonal(Persona listpersona[], Scanner sc) {
 		int edad, peso, altura;
 		double salario;
 		String nombre, dni, profesion;
 		char sexo;
 		
-		for (int i = 1; i < listpersona.length; i++) {
+		for (int i = 0; i < listpersona.length; i++) {
 			System.out.println("--------------------");
 			System.out.println("-Añadir personal " + (i)+ "º-");
 			System.out.println("--------------------");

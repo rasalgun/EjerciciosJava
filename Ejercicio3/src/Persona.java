@@ -114,7 +114,7 @@ public class Persona {
 
 
 
-	public int calcularIMC(int peso, int altura) {
+	public static int calcularIMC(int peso, int altura) {
 		int resul = 0;
 			double imc;
 			imc = peso/Math.pow(altura, 2);
@@ -128,7 +128,7 @@ public class Persona {
 			return resul;
 		}
 	
-	public boolean esMayorDeEdad(int edad) {
+	public static boolean esMayorDeEdad(int edad) {
 		boolean resul = false;
 		if(edad<18) {
 			resul = false;
@@ -148,7 +148,7 @@ public class Persona {
 		return error;
 	}
 	
-	public boolean esMileurista(int salario) {
+	public static boolean esMileurista(int salario) {
 		boolean resul = false;
 		if(salario<1000) {
 			resul = false;
