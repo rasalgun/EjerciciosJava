@@ -36,6 +36,11 @@ public class Cuenta {
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
+
+	@Override
+	public String toString() {
+		return "Cuenta [setSaldo=" + setSaldo + ", titular=" + titular + ", saldo=" + saldo + "]";
+	}
 	
 	//Eventos y funciones que puede tener la cuenta como retirar e ingresar el dinero
 	//Metodo ingresar dinero

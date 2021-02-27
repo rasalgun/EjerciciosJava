@@ -3,14 +3,9 @@ import java.util.*;
 
 public class Main {
 	
-	static Scanner sc = new Scanner(System.in);
-	static int n = 0, edad, peso, altura;
-	static double salario;
-	static String nombre, dni, profesion;
-	static char sexo;
-	
-			
 	public static void main(String[]args) {
+		Scanner sc = new Scanner(System.in);
+		int n = 0;
 		
 		System.out.println("Bienvenido al programa de gestión personal de ventas");
 		System.out.println("--------------------------------------------");
@@ -19,19 +14,42 @@ public class Main {
 		n = sc.nextInt();
 		System.out.println("--------------------------------------------");
 		
-		Persona listpersona [] = new Persona[n+1];
+		Persona listpersona [] = new Persona [n];
 		
-		añadirPersonal(listpersona);
-		System.out.println(calcularIMC(peso,altura));
-		System.out.println(esMayorDeEdad(edad));
-		System.out.println(comprobarSexo(sexo));
-		System.out.println(listpersona);
+		listpersona=añadirPersonal(listpersona,sc);
+			
+		for(int i=0;i<listpersona.length;i++) {
+			System.out.println(" Estas son las comprobaciones para esta persona: " + listpersona[i].getNombre());
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("Comprobar IMC");
+			System.out.println(Persona.calcularIMC(listpersona[i].getPeso(), listpersona[i].getAltura()));
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("Comprobar si es mayor de edad");
+			System.out.println(Persona.esMayorDeEdad(listpersona[i].getEdad()));
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("Comprobar si es mileurista");
+			System.out.println(Persona.esMileurista((int) listpersona[i].getSalario()));
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("Comprobar sexo de la persona");
+			System.out.println(Persona.comprobarSexo(listpersona[i].getSexo()));
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println("----------------------------------------------------------------------");
+			System.out.println(listpersona[i]);
+		}
 		
 	}
 	
-	public static void añadirPersonal(Persona listpersona[]) {
+	public static Persona[] añadirPersonal(Persona listpersona[], Scanner sc) {
+		int edad, peso, altura;
+		double salario;
+		String nombre, dni, profesion;
+		char sexo;
 		
-		for (int i = 1; i < listpersona.length; i++) {
+		for (int i = 0; i < listpersona.length; i++) {
 			System.out.println("--------------------");
 			System.out.println("-Añadir personal " + (i)+ "º-");
 			System.out.println("--------------------");
@@ -53,59 +71,13 @@ public class Main {
 			peso = sc.nextInt();	
 			System.out.println("introduce una altura:_");
 			altura = sc.nextInt();	
-			
-			
-					listpersona[i] = new Persona(nombre, edad, dni, sexo, profesion, salario, peso, altura); 
+				
+			listpersona[i] = new Persona(nombre, edad, dni, sexo, profesion, salario, peso, altura); 
 					
-				}
+			}
+		return listpersona;
 		}
 	
-		public static int calcularIMC(int peso, int altura) {
-			int resul = 0;
-				double imc;
-				imc = peso/Math.pow(altura, 2);
-				if(imc<20) {
-					resul = -1;
-				} else if (imc <= 20 && imc <= 25) {
-					resul = 0;
-				} else if (imc > 25) {
-					resul = 1;
-				}
-				return resul;
-			}
-		
-		public static boolean esMayorDeEdad(int edad) {
-			boolean resul = false;
-			if(edad<18) {
-				resul = false;
-			} else if (edad > 18) {
-				resul = true;
-			} 
-			return resul;
-		}
-	
-		public static String comprobarSexo(char sexo) {
-			char H=sexo,M=sexo;
-			String error;
-			if(sexo==H && sexo==M) {
-				error = "Si es un valor valido";
-			} else { 
-				error = "No es un valor valido";
-			}
-			return error;
-		}
-		
-		public static boolean esMileurista(int salario) {
-			boolean resul = false;
-			if(salario<1000) {
-				resul = false;
-			} else if (salario>1000) {
-				resul = true;
-			} 
-			return resul;
-			
-		}
-		
 		
 		
 }

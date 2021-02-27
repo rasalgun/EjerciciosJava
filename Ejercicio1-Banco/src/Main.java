@@ -61,9 +61,10 @@ public class Main {
 		}else if (fin.equalsIgnoreCase("no")){
 			continuar = false;
 			System.out.println("Adios");
+			mejorMoney(listCuenta);
 		}
 			} while(continuar);
-		mejorMoney(listCuenta);
+		
 }
 	
 		
@@ -79,16 +80,19 @@ public class Main {
 					System.out.println("Escribe la cantidad dinero a ingresar");
 					saldo = sc.nextInt();
 					listCuenta[i] = new Cuenta(titular, saldo); 
-					}
+					
+		System.out.println(listCuenta[i].getNombre() + " Ingresa " + listCuenta[i].getSaldo() + " €");
 		}
+	}
 	
 
 		public static void retirarDinero(Cuenta listCuenta[]) {
 			
 				// IMPRIME LOS NOMBRES DE LOS CLIENTES CON SU SALDO
 				System.out.println("Lista de clientes registrados la sucursal bancaria");
-				for (int i1 = 1; i1 < listCuenta.length; i1++) { 
-					System.out.println((i1)+"º cliente " + "[" + listCuenta[i1].getNombre()+"]" + "|| Saldo disponible: " + listCuenta[i1].getSaldo());
+				for (int i = 1; i < listCuenta.length; i++) { 
+					System.out.println((i)+"º cliente " + "[" + listCuenta[i].getNombre()+"]" + "|| Saldo disponible: " + listCuenta[i].getSaldo());
+					
 				}
 			
 				System.out.println("Marque la cuenta deseada");
@@ -122,8 +126,9 @@ public class Main {
 			
 				// IMPRIMIMOS LOS NOMBRES DE LOS CLIENTES REGISTRADOS CON SU CORRESPONDIENTE SALDO
 				System.out.println("Lista de clientes registrados la sucursal bancaria");
-				for (int i1 = 1; i1 < listCuenta.length; i1++) { 
-					System.out.println((i1)+"º cliente " + "[" + listCuenta[i1].getNombre()+"]" + "|| Saldo disponible: " + listCuenta[i1].getSaldo());
+				for (int i = 1; i < listCuenta.length; i++) { 
+					System.out.println((i)+"º cliente " + "[" + listCuenta[i].getNombre()+"]" + "|| Saldo disponible: " + listCuenta[i].getSaldo());
+					System.out.println(listCuenta[i].getNombre() + " Ingresa " + listCuenta[i].getSaldo() + " €");
 				}
 			
 					System.out.println("Marque la cuenta deseada");
@@ -149,6 +154,8 @@ public class Main {
 				}
 				
 			System.out.println(listCuenta[nCuenta].getSaldo() + " " + listCuenta[nCuenta].getNombre());
+			
+			
 		}		
 	}
 		
@@ -161,6 +168,6 @@ public class Main {
 					nombre = listCuenta[i].getNombre();
 				}
 			}
-					System.out.println("La cuenta con mas dinero es de " + nombre + "con una cantidad de " + maxMoney+"€");
+					System.out.println("La cuenta con mas dinero es de " + nombre + " con una cantidad de " + maxMoney+" €");
 		}
 }
