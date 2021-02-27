@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Main {
 	
-	static int op = 0;
+	static int op = 0, in = 3;
 	public static void main(String[] args){
 		int n = 0, acumulado = 0;
 		String resp = "";
@@ -13,6 +13,7 @@ public class Main {
 		System.out.println("-------------------------------------------------------");
 		System.out.println("-HAS ENTRADO AL CONCURSO DE QUIERO SER MILLONARIO     -");
 		System.out.println("-DEBERAS DE RESPONDER 15 PREGUNTAS Y NO FALLAR NINGUNA-");
+		System.out.println("-                TIENES 3 INTENTOS                    -");
 		System.out.println("-------------------------------------------------------");
 		
 		preguntas(listPregunta); // generar preguntas
@@ -51,11 +52,14 @@ public class Main {
 			System.out.println("Bote acumulado: " + acumPrem(listPregunta, n, acumulado)); // llamamos a la función que acumula el dinero
 			menuPlantarse(sc1); // llamamos al metodo que imprime el menu para plantarse	
 		}else {
+			in--;
 			System.out.println("HAS FALLADO, aun asi eres un crack");
-			System.out.println("HAS GANADO 0 PAVOS");
-		}
-		
-	} while (n < 14 && resptrue(n, listPregunta, resp) && salir());
+			System.out.println("Te quedan: " + in + " intentos");
+			if(in == 0) {
+				System.out.println("Te has quedado sin vidas");
+			}
+		}	
+	} while ((n < 14 || in > 0)  || salir());
 		
 	
 	}
@@ -76,10 +80,8 @@ public class Main {
 	}
 	
 	public static void menuPlantarse(Scanner sc1) { // menu de plantarse
-	
 		System.out.println("Deseas seguir jugando_" + "\n" + "1.SÍ" + "\n" + "2.NO");
 		op = sc1.nextInt();
-	
 	}
 	
 	public static boolean salir() { // nos devolverá true o false en función de si se planta o no, solo para datos tipos INT
