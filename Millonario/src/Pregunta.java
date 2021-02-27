@@ -1,28 +1,23 @@
 
 public class Pregunta {
-	String enunciado;
-	String opcion1;
-	String opcion2;
-	String opcion3;
-	String opcion4;
-	String l1;
-	String l2;
-	String l3;
-	String l4;
-	String ltrue;
+	private String enunciado;
+	private String l1;
+	private String l2;
+	private String l3;
+	private String l4;
+	private String ltrue;
+	private int valor;
 	
-	public Pregunta(String enunciado, String opcion1, String opcion2, String opcion3, String opcion4, String l1, String l2, String l3, String l4, String ltrue) {
+	public Pregunta(String enunciado, String l1, String l2, String l3, String l4, String ltrue, int valor) {
 		super();
 		this.enunciado = enunciado;
-		this.opcion1 = opcion1;
-		this.opcion2 = opcion2;
-		this.opcion3 = opcion3;
-		this.opcion4 = opcion4;
 		this.l1 = l1;
 		this.l2 = l2;
 		this.l3 = l3;
 		this.l4 = l4;
 		this.ltrue = ltrue;
+		this.valor = valor;
+		
 	}
 
 	public String getEnunciado() {
@@ -31,38 +26,6 @@ public class Pregunta {
 
 	public void setEnunciado(String enunciado) {
 		this.enunciado = enunciado;
-	}
-
-	public String getOpcion1() {
-		return opcion1;
-	}
-
-	public void setOpcion1(String opcion1) {
-		this.opcion1 = opcion1;
-	}
-
-	public String getOpcion2() {
-		return opcion2;
-	}
-
-	public void setOpcion2(String opcion2) {
-		this.opcion2 = opcion2;
-	}
-
-	public String getOpcion3() {
-		return opcion3;
-	}
-
-	public void setOpcion3(String opcion3) {
-		this.opcion3 = opcion3;
-	}
-
-	public String getOpcion4() {
-		return opcion4;
-	}
-
-	public void setOpcion4(String opcion4) {
-		this.opcion4 = opcion4;
 	}
 
 	public String getL1() {
@@ -105,10 +68,18 @@ public class Pregunta {
 		this.ltrue = ltrue;
 	}
 	
+	public int getvalor() {
+		return valor;
+	}
+	
+	public void setvalor(int valor) {
+		this.valor = valor;
+	}
+	
 	
 	// Funciones y metodos de la clase pregunta
 	
-	public String toString() {
+	public String toString() { // imprimir los datos deseados 
 		return enunciado+"\n"+l1+"\n"+l2+"\n"+l3+"\n"+l4;
 	}
 }

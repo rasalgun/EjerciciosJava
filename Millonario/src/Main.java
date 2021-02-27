@@ -1,114 +1,92 @@
 import java.util.*;
 
 public class Main {
+	
+	static int op = 0;
 	public static void main(String[] args){
+		int n = 0, acumulado = 0;
+		String resp = "";
+		 Scanner sc = new Scanner(System.in);
+		 Scanner sc1 = new Scanner(System.in);
+		Pregunta listPregunta[] = new Pregunta[16];
 		
-		Pregunta listPregunta[] = new Pregunta[14];
-		
-		System.out.println("------------------------------------------------------");
+		System.out.println("-------------------------------------------------------");
 		System.out.println("-HAS ENTRADO AL CONCURSO DE QUIERO SER MILLONARIO     -");
 		System.out.println("-DEBERAS DE RESPONDER 15 PREGUNTAS Y NO FALLAR NINGUNA-");
-		System.out.println("------------------------------------------------------");
+		System.out.println("-------------------------------------------------------");
 		
 		preguntas(listPregunta); // generar preguntas
-		
+		inputRespuesta(listPregunta, n, resp, sc, acumulado,sc1);
 	}
 	
 	public static void preguntas(Pregunta listPregunta[]) {
-		
-		listPregunta[0].setEnunciado("Significado de la siglas EGB");
-		listPregunta[0].setL1("A: Educación General Básica");
-		listPregunta[0].setL1("B: Estado General Bienestar");
-		listPregunta[0].setL1("C: Estudio General del Balance");
-		listPregunta[0].setL1("D: Espacio General Deportivo");
-		listPregunta[0].setltrue("a");
-		listPregunta[1].setEnunciado("De que esta hecha la horchata de Valencia");
-		listPregunta[1].setL1("A: Pistacho");
-		listPregunta[1].setL1("B: Trufa");
-		listPregunta[1].setL1("C: Arroz");
-		listPregunta[1].setL1("D: Chufa");
-		listPregunta[1].setltrue("d");
-		listPregunta[2].setEnunciado("Quien de estas actrices era Rachel en Friends");
-		listPregunta[2].setL1("A: Jennifer Aniston");
-		listPregunta[2].setL1("B: Courteney Cox");
-		listPregunta[2].setL1("C: Lisas Kudrow");
-		listPregunta[2].setL1("D: Reese Witherspoon");
-		listPregunta[2].setltrue("a");
-		listPregunta[3].setEnunciado("Quienes eran Los Tres Tenores");
-		listPregunta[3].setL1("A: Pavarotti, Domingo y Carreras");
-		listPregunta[3].setL1("B: Pavarotti, Domingo y Bocelli");
-		listPregunta[3].setL1("C: Pavarotti, Domingo y Caruso");
-		listPregunta[3].setL1("D: Pavarotti, Domingo y Kaufmann");
-		listPregunta[3].setltrue("b");
-		listPregunta[4].setEnunciado("Cuál es la operación a esta operacion: 50+50x0-1");
-		listPregunta[4].setL1("A: -100");
-		listPregunta[4].setL1("B: -1");
-		listPregunta[4].setL1("C: 0");
-		listPregunta[4].setL1("D: 49");
-		listPregunta[4].setltrue("d");
-		listPregunta[5].setEnunciado("Quien interpretó la canción oficial del mundial de fútbol de 2010 celebrado en Sudafrica");
-		listPregunta[5].setL1("A: shakira");
-		listPregunta[5].setL1("B: Bob Marly");
-		listPregunta[5].setL1("C: David Bisbal");
-		listPregunta[5].setL1("D: Pavaroty");
-		listPregunta[5].setltrue("a");
-		listPregunta[6].setEnunciado("De qué comunidad autónoma fue presidente José Maria Aznar anes de gobernar España");
-		listPregunta[6].setL1("A: Castilla la Mancha");
-		listPregunta[6].setL1("B: Castilla y Leon");
-		listPregunta[6].setL1("C: Andalucia");
-		listPregunta[6].setL1("D: Madrid");
-		listPregunta[6].setltrue("b");
-		listPregunta[7].setEnunciado("Quién fue el primero en recibir un premio Nobel de Literatura");
-		listPregunta[7].setL1("A: Albert Enstain");
-		listPregunta[7].setL1("B: Eduardo Saenz Cabezon");
-		listPregunta[7].setL1("C: Nobel");
-		listPregunta[7].setL1("D: Mary Cury");
-		listPregunta[7].setltrue("a");
-		listPregunta[8].setEnunciado("¿Con qué letra comienza la palabra del tomo 21 de la Enciclopedia Espasa?");
-		listPregunta[8].setL1("A: a");
-		listPregunta[8].setL1("B: s");
-		listPregunta[8].setL1("C: q");
-		listPregunta[8].setL1("D: q");
-		listPregunta[8].setltrue("s");
-		listPregunta[9].setEnunciado("ldflgr`gorepok");
-		listPregunta[9].setL1("A: Pavarotti, Domingo y Carreras");
-		listPregunta[9].setL1("B: Pavarotti, Domingo y Bocelli");
-		listPregunta[9].setL1("C: Pavarotti, Domingo y Caruso");
-		listPregunta[9].setL1("D: Pavarotti, Domingo y Kaufmann");
-		listPregunta[9].setltrue("d");
-		listPregunta[10].setEnunciado("pkwmrpmwep");
-		listPregunta[10].setL1("A: Pavarotti, Domingo y Carreras");
-		listPregunta[10].setL1("B: Pavarotti, Domingo y Bocelli");
-		listPregunta[10].setL1("C: Pavarotti, Domingo y Caruso");
-		listPregunta[10].setL1("D: Pavarotti, Domingo y Kaufmann");
-		listPregunta[10].setltrue("d");
-		listPregunta[11].setEnunciado("sdmfkerwmwpo");
-		listPregunta[11].setL1("A: Pavarotti, Domingo y Carreras");
-		listPregunta[11].setL1("B: Pavarotti, Domingo y Bocelli");
-		listPregunta[11].setL1("C: Pavarotti, Domingo y Caruso");
-		listPregunta[11].setL1("D: Pavarotti, Domingo y Kaufmann");
-		listPregunta[11].setltrue("d");
-		listPregunta[12].setEnunciado("ñler,ew,`rwl`plr");
-		listPregunta[12].setL1("A: Pavarotti, Domingo y Carreras");
-		listPregunta[12].setL1("B: Pavarotti, Domingo y Bocelli");
-		listPregunta[12].setL1("C: Pavarotti, Domingo y Caruso");
-		listPregunta[12].setL1("D: Pavarotti, Domingo y Kaufmann");
-		listPregunta[12].setltrue("d");
-		listPregunta[13].setEnunciado("meswfñkñewmprw,m");
-		listPregunta[13].setL1("A: Pavarotti, Domingo y Carreras");
-		listPregunta[13].setL1("B: Pavarotti, Domingo y Bocelli");
-		listPregunta[13].setL1("C: Pavarotti, Domingo y Caruso");
-		listPregunta[13].setL1("D: Pavarotti, Domingo y Kaufmann");
-		listPregunta[13].setltrue("d");
-		listPregunta[14].setEnunciado("lk flkwe f");
-		listPregunta[14].setL1("A: Pavarotti, Domingo y Carreras");
-		listPregunta[14].setL1("B: Pavarotti, Domingo y Bocelli");
-		listPregunta[14].setL1("C: Pavarotti, Domingo y Caruso");
-		listPregunta[14].setL1("D: Pavarotti, Domingo y Kaufmann");	
-		listPregunta[14].setltrue("d");
+		// enunciado, 1º opcion , 2º opocion, 3º opcion, 4º opcion, respuesta correcta, cantidad ganada
+		listPregunta[1] = new Pregunta("Significado de la siglas EGB", "A: Educación General Básica", "B: Estado General Bienestar", "C: Estudio General del Balance", "D: Espacio General Deportivo", "a", 100);
+		listPregunta[2] = new Pregunta("De que esta hecha la horchata de Valencia", "A: Pistacho", "B: Trufa", "C: Arroz", "D: Chufa", "d", 250);	
+		listPregunta[3] = new Pregunta("Quien de estas actrices era Rachel en Friends", "A: Jennifer Aniston", "B: Courteney Cox", "C: Lisas Kudrow", "D: Reese Witherspoon", "a", 500);
+		listPregunta[4] = new Pregunta("Quienes eran Los Tres Tenores", "A: Pavarotti, Domingo y Carreras", "B: Pavarotti, Domingo y Bocelli", "C: Pavarotti, Domingo y Caruso", "D: Pavarotti, Domingo y Kaufmann", "b", 750);
+		listPregunta[5] = new Pregunta("Cuál es la operación a esta operacion: 50+50x0-1", "A: -100", "B: -1", "C: 0", "D: 49", "d", 1500);
+		listPregunta[6] = new Pregunta("Quien interpretó la canción oficial del mundial de fútbol de 2010 celebrado en Sudafrica", "A: shakira", "B: Bob Marly", "C: David Bisbal", "D: Pavaroty", "a", 2500);
+		listPregunta[7] = new Pregunta("De qué comunidad autónoma fue presidente José Maria Aznar anes de gobernar España", "A: Castilla la Mancha", "B: Castilla y Leon", "C: Andalucia", "D: Madrid", "b", 5000);
+		listPregunta[8] = new Pregunta("Quién fue el primero en recibir un premio Nobel de Literatura", "A: Albert Enstain", "B: Eduardo Saenz Cabezon", "C: Nobel", "D: Mary Cury", "a", 10000);
+		listPregunta[9] = new Pregunta("¿Con qué letra comienza la palabra del tomo 21 de la Enciclopedia Espasa?", "A: a", "B: s", "C: q", "D: q", "s", 15000);
+		listPregunta[10] = new Pregunta("¿Con qué letra comienza la palabra del tomo 21 de la Enciclopedia Espasa?", "A: a", "B: s", "C: q", "D: q", "s", 20000);
+		listPregunta[11] = new Pregunta("¿Con qué letra comienza la palabra del tomo 21 de la Enciclopedia Espasa?", "A: a", "B: s", "C: q", "D: q", "s", 30000);
+		listPregunta[12] = new Pregunta("¿Con qué letra comienza la palabra del tomo 21 de la Enciclopedia Espasa?", "A: a", "B: s", "C: q", "D: q", "s", 50000);
+		listPregunta[13] = new Pregunta("¿Con qué letra comienza la palabra del tomo 21 de la Enciclopedia Espasa?", "A: a", "B: s", "C: q", "D: q", "s", 100000);
+		listPregunta[14] = new Pregunta("¿Con qué letra comienza la palabra del tomo 21 de la Enciclopedia Espasa?", "A: a", "B: s", "C: q", "D: q", "s", 300000);
+		listPregunta[15] = new Pregunta("¿Con qué letra comienza la palabra del tomo 21 de la Enciclopedia Espasa?", "A: a", "B: s", "C: q", "D: q", "s", 1000000);
 	}
 	
-	public static void inputRespuesta() {
+	public static void inputRespuesta(Pregunta listPregunta[], int n, String resp, Scanner sc, int acumulado, Scanner sc1) { // Metodo para listar las preguntas
+		System.out.println("-Responde con cuidado las siguientes preguntas-");
+
+	do {
+		n++;
+		System.out.println(listPregunta[n].toString()); // llamamos a la función toStrin, nos mostrará el enunciado y posibles respuestas de la pregunta
+		System.out.print("Elige una respuesta_ ");
+		resp = sc.nextLine();
+		if(resptrue(n, listPregunta, resp)) {
+			System.out.println("HAS ACERTADO");
+			System.out.println("Bote acumulado: " + acumPrem(listPregunta, n, acumulado)); // llamamos a la función que acumula el dinero
+			menuPlantarse(sc1); // llamamos al metodo que imprime el menu para plantarse	
+		}else {
+			System.out.println("HAS FALLADO, aun asi eres un crack");
+			System.out.println("HAS GANADO 0 PAVOS");
+		}
 		
+	} while (n < 14 && resptrue(n, listPregunta, resp) && salir());
+		
+	
+	}
+	
+	public static boolean resptrue(int n, Pregunta listPregunta[], String resp) { // comprobar que los datos introducidos son correctos, solo para datos tipo STRINGS
+		boolean continu;
+		if(resp.equalsIgnoreCase(listPregunta[n].getltrue())) { // comprobamos si es cierta con el parametro getltrue
+			continu = true;
+		}else {
+			continu = false;
+		}
+		return continu;
+	}
+	
+	public static int acumPrem(Pregunta listPregunta[], int n, int acumulado) { // acumulador de dinero de cada prueba, en cada reitaración le pasamos por parametros el indice del objeto que queremos acumular
+		acumulado = listPregunta[n].getvalor() + acumulado;
+		return acumulado; 		
+	}
+	
+	public static void menuPlantarse(Scanner sc1) { // menu de plantarse
+	
+		System.out.println("Deseas seguir jugando_" + "\n" + "1.SÍ" + "\n" + "2.NO");
+		op = sc1.nextInt();
+	
+	}
+	
+	public static boolean salir() { // nos devolverá true o false en función de si se planta o no, solo para datos tipos INT
+		if(op == 1) {
+			return true;
+		}else {
+			return false;
+		}		
 	}
 }
