@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Main {
 	
-	static int op = 0, in = 3;
+	static int op = 1, in = 3;
 	public static void main(String[] args){
 		int n = 0, acumulado = 0;
 		String resp = "";
@@ -58,8 +58,11 @@ public class Main {
 			if(in == 0) {
 				System.out.println("Te has quedado sin vidas");
 			}
+		}
+		if(salir() == false) {
+			break;
 		}	
-	} while ((n < 14 || in > 0)  || salir());
+	} while ( n < 14 && in != 0 );
 		
 	
 	}
