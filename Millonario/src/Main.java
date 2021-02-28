@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Main {
 	
-	static int op = 1, in = 3;
+	static int op = 1, in = 3, re = 2, c = 1;
 	public static void main(String[] args){
 		int n = 0, acumulado = 0;
 		String resp = "";
@@ -14,6 +14,7 @@ public class Main {
 		System.out.println("-HAS ENTRADO AL CONCURSO DE QUIERO SER MILLONARIO     -");
 		System.out.println("-DEBERAS DE RESPONDER 15 PREGUNTAS Y NO FALLAR NINGUNA-");
 		System.out.println("-                TIENES 3 INTENTOS                    -");
+		System.out.println("-             PODRAS OMITIR UNA PREGUNTA              -");
 		System.out.println("-------------------------------------------------------");
 		
 		preguntas(listPregunta); // generar preguntas
@@ -22,7 +23,7 @@ public class Main {
 	
 	public static void preguntas(Pregunta listPregunta[]) {
 		// enunciado, 1º opcion , 2º opocion, 3º opcion, 4º opcion, respuesta correcta, cantidad ganada
-		listPregunta[1] = new Pregunta("Significado de la siglas EGB", "A: Educación General Básica", "B: Estado General Bienestar", "C: Estudio General del Balance", "D: Espacio General Deportivo", "a", 100);
+		listPregunta[1] = new Pregunta("Significado de la siglas EGB", "A: Educación General Básica", "B: Estado General Bienestar", "C: Estudio General del Balance", "D: Espacio General Deportivo", "a", 100); // inicializamos desde el primer objeto por un problema tecnico, posiblemente lo optimicemos
 		listPregunta[2] = new Pregunta("De que esta hecha la horchata de Valencia", "A: Pistacho", "B: Trufa", "C: Arroz", "D: Chufa", "d", 250);	
 		listPregunta[3] = new Pregunta("Quien de estas actrices era Rachel en Friends", "A: Jennifer Aniston", "B: Courteney Cox", "C: Lisas Kudrow", "D: Reese Witherspoon", "a", 500);
 		listPregunta[4] = new Pregunta("Quienes eran Los Tres Tenores", "A: Pavarotti, Domingo y Carreras", "B: Pavarotti, Domingo y Bocelli", "C: Pavarotti, Domingo y Caruso", "D: Pavarotti, Domingo y Kaufmann", "b", 750);
@@ -45,6 +46,15 @@ public class Main {
 	do {
 		n++;
 		System.out.println(listPregunta[n].toString()); // llamamos a la función toStrin, nos mostrará el enunciado y posibles respuestas de la pregunta
+		if(re == 2) {
+			omitir(sc1);		 // imprime el menu de omitir la pregunta
+		}
+		if(om()) { // imprimimos el menu siempre que tenga el contandor c = 1, en el momento de utilizarlo c = 0 y devolevera false y dejara de imprimir el menu	
+			if(re == 1) { // si es igual a 1 cambia a la siguiente pregunta
+				n++; // icrementa en +1 el indice para pasar a la siguiente pregunta 
+				System.out.println(listPregunta[n].toString()); // imprime la siguiente pregunta
+			}
+		}
 		System.out.print("Elige una respuesta_ ");
 		resp = sc.nextLine();
 		if(resptrue(n, listPregunta, resp)) {
@@ -59,9 +69,13 @@ public class Main {
 				System.out.println("Te has quedado sin vidas");
 			}
 		}
-		if(salir() == false) {
+		if(salir() == false) { // si pulsa 2 devuelve false y activa el if rompiendo el bucle
 			break;
-		}	
+		}
+		if(n == 5) {
+			in++;
+			System.out.println("Has recuperado una vida");
+		}
 	} while ( n < 14 && in != 0 );
 		
 	
@@ -93,5 +107,21 @@ public class Main {
 		}else {
 			return false;
 		}		
+	}
+	
+	public static void omitir(Scanner sc1) {
+		System.out.println("¿Quieres omitir esta pregunta?");
+		System.out.println("1.SÍ");
+		System.out.println("2.NO");
+		re = sc1.nextInt();
+	}
+	
+	public static boolean om() {
+		if(re == 1 && c == 1) {
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 }
