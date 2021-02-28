@@ -5,24 +5,24 @@ public class Main {
 	// HE CREADO UN METODO DE INGRESAR Y HE PUESTO UN MENU
 	// PROBANDO
 		static Scanner sc = new Scanner(System.in);
-		static int n = 0, op;
-		static double saldo, saldoretirar, saldoringresar;
-		static String titular;
-		static int opcion, opcionsalir;
-		static boolean continuar =true;
-		static String fin;
 		
 		//METODO PRINCIPAL
 		public static void main(String[] args) {
-		
+			
+		int n = 0;
+		int opcion;
+		boolean continuar =true;
+		String fin;
+		do {
 		System.out.println("Bienvenido al programa de gestión financiera");
 		System.out.println("--------------------------------------------");
 		System.out.println("Introduce el número de clientes");
 		System.out.println("--------------------------------------------");
 		n = sc.nextInt();
 		System.out.println("--------------------------------------------");
+		} while(n < 1);
 		
-		Cuenta listCuenta [] = new Cuenta[n+1];
+		Cuenta listCuenta [] = new Cuenta[n];
 		
 		
 		// CREAMOS LOS OBJETOS CUENTAS EN UN  ARRAY OBJETOS
@@ -69,6 +69,8 @@ public class Main {
 	
 		
 	public static void añadirCliente(Cuenta listCuenta[]) {
+		double saldo; 
+		 String titular;
 		for (int i = 1; i < listCuenta.length; i++) {
 			System.out.println("--------------------");
 			System.out.println("-Añadir cliente " + (i)+ "º-");
@@ -87,7 +89,7 @@ public class Main {
 	
 
 		public static void retirarDinero(Cuenta listCuenta[]) {
-			
+				int saldoretirar; 
 				// IMPRIME LOS NOMBRES DE LOS CLIENTES CON SU SALDO
 				System.out.println("Lista de clientes registrados la sucursal bancaria");
 				for (int i = 1; i < listCuenta.length; i++) { 
@@ -123,7 +125,7 @@ public class Main {
 		}
 		
 		public static void ingresarDinero(Cuenta listCuenta[]) {
-			
+				int saldoringresar;
 				// IMPRIMIMOS LOS NOMBRES DE LOS CLIENTES REGISTRADOS CON SU CORRESPONDIENTE SALDO
 				System.out.println("Lista de clientes registrados la sucursal bancaria");
 				for (int i = 1; i < listCuenta.length; i++) { 

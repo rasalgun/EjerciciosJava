@@ -6,14 +6,14 @@ public class Main {
 	public static void main(String[]args) {
 		Scanner sc = new Scanner(System.in);
 		int n = 0;
-		
+		do {
 		System.out.println("Bienvenido al programa de gestión personal de ventas");
 		System.out.println("--------------------------------------------");
 		System.out.println("Introduce el número de personal de ventas");
 		System.out.println("--------------------------------------------");
 		n = sc.nextInt();
 		System.out.println("--------------------------------------------");
-		
+		} while(n < 1);
 		Persona listpersona [] = new Persona [n];
 		
 		listpersona=añadirPersonal(listpersona,sc);

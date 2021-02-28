@@ -1,9 +1,9 @@
 public class Persona {
 
 	String nombre;
-	static String dni;
+	String dni;
 	String profesion;
-	static int edad;
+	int edad;
 	int peso;
 	int altura;
 	char sexo;
