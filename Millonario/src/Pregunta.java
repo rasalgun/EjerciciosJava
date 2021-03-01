@@ -8,6 +8,8 @@ public class Pregunta {
 	private String ltrue;
 	private int valor;
 	
+	// CONSTRUCTOR PARA GUARDAR LOS DATOS DE LAS PREGUNTAS
+	
 	public Pregunta(String enunciado, String l1, String l2, String l3, String l4, String ltrue, int valor) {
 		super();
 		this.enunciado = enunciado;
@@ -20,6 +22,8 @@ public class Pregunta {
 		
 	}
 
+	// GETTER Y SETTER 
+	
 	public String getEnunciado() {
 		return enunciado;
 	}
@@ -76,10 +80,9 @@ public class Pregunta {
 		this.valor = valor;
 	}
 	
-	
-	// Funciones y metodos de la clase pregunta
-	
-	public String toString() { // imprimir los datos deseados 
+	// FUNCIONES Y METODOS DE LA CLASE PREGUNTA
+	// IMPRIMIR LOS DATOS DESEADOS
+	public String toString() { 
 		return enunciado+"\n"+l1+"\n"+l2+"\n"+l3+"\n"+l4;
 	}
 }

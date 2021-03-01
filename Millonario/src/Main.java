@@ -12,17 +12,20 @@ public class Main {
 		
 		System.out.println("-------------------------------------------------------");
 		System.out.println("-HAS ENTRADO AL CONCURSO DE QUIERO SER MILLONARIO     -");
-		System.out.println("-DEBERAS DE RESPONDER 15 PREGUNTAS Y NO FALLAR NINGUNA-");
+		System.out.println("-DEBERAS DE RESPONDER 15 PREGUNTAS                    -");
 		System.out.println("-                TIENES 3 INTENTOS                    -");
 		System.out.println("-             PODRAS OMITIR UNA PREGUNTA              -");
 		System.out.println("-------------------------------------------------------");
 		
-		preguntas(listPregunta); // generar preguntas
+		// GENERAR PREGUNTAS
+		preguntas(listPregunta); 
 		inputRespuesta(listPregunta, n, resp, sc, acumulado,sc1);
 	}
 	
 	public static void preguntas(Pregunta listPregunta[]) {
-		// enunciado, 1º opcion , 2º opocion, 3º opcion, 4º opcion, respuesta correcta, cantidad ganada
+		
+		// ENUNCIADO, 1º OPCION, 2º OPCION, 3º OPCION, 4º OPCION, RESPUESTA CORRECTA, CANTIDAD GANADA
+		
 		listPregunta[1] = new Pregunta("Significado de la siglas EGB", "A: Educación General Básica", "B: Estado General Bienestar", "C: Estudio General del Balance", "D: Espacio General Deportivo", "a", 100); // inicializamos desde el primer objeto por un problema tecnico, posiblemente lo optimicemos
 		listPregunta[2] = new Pregunta("De que esta hecha la horchata de Valencia", "A: Pistacho", "B: Trufa", "C: Arroz", "D: Chufa", "d", 250);	
 		listPregunta[3] = new Pregunta("Quien de estas actrices era Rachel en Friends", "A: Jennifer Aniston", "B: Courteney Cox", "C: Lisas Kudrow", "D: Reese Witherspoon", "a", 500);
@@ -45,14 +48,20 @@ public class Main {
 
 	do {
 		n++;
-		System.out.println(listPregunta[n].toString()); // llamamos a la función toStrin, nos mostrará el enunciado y posibles respuestas de la pregunta
+		// LLAMAMOS A LA FUNCION TOSTRING, NOS MOSTRARA EL ENUNCIADO Y POSIBLES RESPUESTAS DE LA PREGUNTA
+		System.out.println(listPregunta[n].toString()); 
 		if(re == 2) {
-			omitir(sc1);		 // imprime el menu de omitir la pregunta
+			// IMPRIME EL MENU DE OMITIR LA PREGUNTA
+			omitir(sc1);		 
 		}
-		if(om()) { // imprimimos el menu siempre que tenga el contandor c = 1, en el momento de utilizarlo c = 0 y devolevera false y dejara de imprimir el menu	
-			if(re == 1) { // si es igual a 1 cambia a la siguiente pregunta
-				n++; // icrementa en +1 el indice para pasar a la siguiente pregunta 
-				System.out.println(listPregunta[n].toString()); // imprime la siguiente pregunta
+		// IMPRIMIMOS EL MENU SIEMPRE QUE TENGA EL CONTADOR C = 1, EN EL MOMENTO DE UTILIZACION C = 0 Y  DEVOLVERA FALSE Y DEJARA DE IMPRIMIR EL MENU
+		if(om()) { 
+			// SI ES IGUAL A 1 CAMBIA A LA SIGUIENTE PREGUNTA
+			if(re == 1) { 
+				// INCREMENTA EN 1 EL INDICE PARA PASAR A LA SIGUIENTE PREGUNTA
+				n++; 
+				// IMPRIME LA SIGUIENTE PREGUNTA
+				System.out.println(listPregunta[n].toString()); 
 			}
 		}
 		System.out.print("Elige una respuesta_ ");
@@ -60,7 +69,8 @@ public class Main {
 		if(resptrue(n, listPregunta, resp)) {
 			System.out.println("HAS ACERTADO");
 			System.out.println("Bote acumulado: " + acumPrem(listPregunta, n, acumulado)); // llamamos a la función que acumula el dinero
-			menuPlantarse(sc1); // llamamos al metodo que imprime el menu para plantarse	
+			// LLAMAMOS AL METODO QUE IMPRIME EL MENU PARA PLANTARSE
+			menuPlantarse(sc1); 	
 		}else {
 			in--;
 			System.out.println("HAS FALLADO, aun asi eres un crack");
@@ -69,7 +79,9 @@ public class Main {
 				System.out.println("Te has quedado sin vidas");
 			}
 		}
-		if(salir() == false) { // si pulsa 2 devuelve false y activa el if rompiendo el bucle
+		// SI PULSA 2 DEVUELVE FALSE Y ACTIVA EL IF ROMPIENDO EL BUCLE
+		if(salir() == false) { 
+
 			break;
 		}
 		if(n == 5) {
@@ -81,9 +93,11 @@ public class Main {
 	
 	}
 	
-	public static boolean resptrue(int n, Pregunta listPregunta[], String resp) { // comprobar que los datos introducidos son correctos, solo para datos tipo STRINGS
+	// COMPROBAR QUE LOS DATOS INTRODUCIDO SON CORRECTOS, SOLO PARA DATOS TIPOS STRING
+	public static boolean resptrue(int n, Pregunta listPregunta[], String resp) { 
 		boolean continu;
-		if(resp.equalsIgnoreCase(listPregunta[n].getltrue())) { // comprobamos si es cierta con el parametro getltrue
+		// COMPROBAMOS SI ES CIERTA CON EL PARAMETRO GETLTRUE
+		if(resp.equalsIgnoreCase(listPregunta[n].getltrue())) { 
 			continu = true;
 		}else {
 			continu = false;
@@ -91,17 +105,20 @@ public class Main {
 		return continu;
 	}
 	
-	public static int acumPrem(Pregunta listPregunta[], int n, int acumulado) { // acumulador de dinero de cada prueba, en cada reitaración le pasamos por parametros el indice del objeto que queremos acumular
+	// ACUMULADOR DE DINERO DE CADA PRUEBA, EN CADA REITERACION LA PASAMOS POR PARAMETROS EL INDICE DEL OBJETO QUE QUEREMOS ACUMULAR
+	public static int acumPrem(Pregunta listPregunta[], int n, int acumulado) { 
 		acumulado = listPregunta[n].getvalor() + acumulado;
 		return acumulado; 		
 	}
 	
-	public static void menuPlantarse(Scanner sc1) { // menu de plantarse
+	// MENU DE PLANTARSE 
+	public static void menuPlantarse(Scanner sc1) { 
 		System.out.println("Deseas seguir jugando_" + "\n" + "1.SÍ" + "\n" + "2.NO");
 		op = sc1.nextInt();
 	}
 	
-	public static boolean salir() { // nos devolverá true o false en función de si se planta o no, solo para datos tipos INT
+	// NOS DEVOLVERA TRUE O FALSE EN FUNCION DE SI SE PLANTA O NO, SOLO PARA DATOS TIPOS INT
+	public static boolean salir() { 
 		if(op == 1) {
 			return true;
 		}else {
